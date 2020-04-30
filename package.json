@@ -1,0 +1,27 @@
+{
+  "name": "random-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteo14-git/random-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteo14-git/random-backend/issues"
+  },
+  "homepage": "https://github.com/matteo14-git/random-backend#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  }
+}
