@@ -8,9 +8,9 @@ export enum Collections {
   animals = 'animals',
 }
 
-// export const getCollection(collection : Collections) => {
-//   return Database
-// }
+export const getCollection = (collection: Collections) => {
+  return Database.client.db(DB_NAME).collection(collection);
+};
 
 export class Database {
   static client: MongoClient;
@@ -21,14 +21,16 @@ export class Database {
         DB_CONNECTION_STRING,
         connectionOptions,
         (err, client) => {
-          if (err) {
-            return reject(err);
-          }
+          if (err) return reject(err);
 
           Database.client = client;
           resolve(client);
         }
       );
     });
+  }
+
+  static disconnect(): void {
+    Database.client.close();
   }
 }
