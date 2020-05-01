@@ -8,8 +8,8 @@ export enum Genres {
 export interface Friend {
   surname: string;
   name: string;
-  birth: Date;
-  city: string;
+  birth?: Date;
+  city?: string;
 }
 
 export interface Food {
@@ -22,6 +22,6 @@ export interface Animals {
   name: string;
   race: string;
   genre: Genres;
-  friends: Friend[];
-  favFoods: Food[];
+  friends?: Friend[];
+  favFoods?: Food[];
 }

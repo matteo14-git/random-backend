@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "jest --runInBand",
     "build": "tsc",
     "start": "node dist/server.js"
   },
@@ -21,7 +21,9 @@
   "homepage": "https://github.com/matteo14-git/random-backend#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
+    "jest": "^25.5.3",
     "prettier": "2.0.5",
+    "supertest": "^4.0.2",
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   },
