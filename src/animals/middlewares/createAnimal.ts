@@ -1,10 +1,21 @@
 import { Request, Response, NextFunction } from 'express';
-import { Database, Collections } from '../../common/utils/Database';
+import { Collections, getCollection } from '../../common/utils/Database';
+import { Animals } from '../interfaces/Animal';
 
 export default async (req: Request, res: Response, next: NextFunction) => {
-  const body = req.body;
+  const animal: Animals = {
+    ...req.body,
+  };
 
-  console.log('body', body);
+  try {
+    const collection = getCollection(Collections.animals);
 
-  res.sendStatus(400);
+    const { ops } = await collection.insertOne(animal);
+
+    const insertedAnimal = ops[0];
+
+    res.send(insertedAnimal);
+  } catch (err) {
+    throw new Error(err);
+  }
 };

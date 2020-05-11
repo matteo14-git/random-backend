@@ -27,6 +27,9 @@ describe('Create animal API', () => {
 
     const { body, status } = await request(app).post('/animals').send(animal);
 
+    expect(Object.keys(body)).toEqual(
+      expect.arrayContaining(['_id', 'name', 'race', 'genre'])
+    );
     expect(status).toBe(200);
   });
 });
