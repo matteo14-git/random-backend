@@ -6,6 +6,7 @@ import {
   Collections,
 } from '../../common/utils/Database';
 import { Animals, Genres } from '../interfaces/Animal';
+import { ObjectId } from 'mongodb';
 
 describe('Update animal API', () => {
   beforeAll(() => {
@@ -41,8 +42,29 @@ describe('Update animal API', () => {
       .put(`/animals/${_id}`)
       .send(animal);
 
-    expect(body.friends).toHaveLength(1);
     expect(status).toBe(200);
+    expect(body.friends).toHaveLength(1);
     expect(body.name).toBe('Pippo');
+  });
+
+  test('should return 404 if animal is not found', async () => {
+    const animal: Animals = {
+      name: 'Kiko',
+      race: 'Barboncino nano',
+      genre: Genres.MALE,
+    };
+
+    const { status: createStatus } = await request(app)
+      .post('/animals')
+      .send(animal);
+
+    expect(createStatus).toBe(200);
+
+    animal.name = 'Pippo';
+
+    const _id = new ObjectId();
+    const { status } = await request(app).post(`/animals/${_id}`).send(animal);
+
+    expect(status).toBe(404);
   });
 });
