@@ -1,9 +1,9 @@
 import app from './app';
 import { Database } from './common/utils/Database';
 
-app.listen(3000, async (err) => {
+app.listen(4000, async (err) => {
   if (err) console.log(err);
-  console.log('App listening on 3000');
+  console.log('App listening on 4000');
 
   try {
     await Database.connect();

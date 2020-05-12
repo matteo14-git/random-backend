@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 
 export enum Genres {
-  MALE = 'female',
+  MALE = 'male',
   FEMALE = 'female',
 }
 
