@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const Database_1 = require("./common/utils/Database");
-app_1.default.listen(3000, (err) => __awaiter(void 0, void 0, void 0, function* () {
+app_1.default.listen(4000, (err) => __awaiter(void 0, void 0, void 0, function* () {
     if (err)
         console.log(err);
-    console.log('App listening on 3000');
+    console.log('App listening on 4000');
     try {
         yield Database_1.Database.connect();
         console.info('Connected to Mongo!');
