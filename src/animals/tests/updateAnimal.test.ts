@@ -49,22 +49,23 @@ describe('Update animal API', () => {
 
   test('should return 404 if animal is not found', async () => {
     const animal: Animals = {
+      _id: new ObjectId(),
       name: 'Kiko',
       race: 'Barboncino nano',
       genre: Genres.MALE,
     };
 
-    const { status: createStatus } = await request(app)
-      .post('/animals')
+    const { status } = await request(app)
+      .put(`/animals/${animal._id}`)
       .send(animal);
-
-    expect(createStatus).toBe(200);
-
-    animal.name = 'Pippo';
-
-    const _id = new ObjectId();
-    const { status } = await request(app).post(`/animals/${_id}`).send(animal);
 
     expect(status).toBe(404);
   });
+
+  // test('should return 400 if no body is passed', async () => {
+  //   const _id = new ObjectId();
+  //   const { status } = await request(app).put(`/animals/${_id}`);
+
+  //   expect(status).toBe(400);
+  // });
 });
