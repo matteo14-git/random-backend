@@ -5,20 +5,20 @@ export const createAnimalKeys = {
   _id: Joi.any().strip(),
   name: Joi.string().required(),
   race: Joi.string().required(),
-  genre: Joi.valid(...Object.keys(Genres)),
+  genre: Joi.valid(...Object.keys(Genres)).required(),
   friends: Joi.array().items(
     Joi.object({
       surname: Joi.string().required(),
       name: Joi.string().required(),
       birth: Joi.date(),
       city: Joi.string(),
-    }).required()
+    })
   ),
   favFoods: Joi.array().items(
     Joi.object({
       name: Joi.string().required(),
       brand: Joi.string(),
-    }).required()
+    })
   ),
 };
 
