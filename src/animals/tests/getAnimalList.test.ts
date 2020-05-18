@@ -17,6 +17,11 @@ describe('Get animal list API', () => {
     {
       name: 'Pippo',
       race: 'Incrocio',
+      genre: Genres.FEMALE,
+    },
+    {
+      name: 'Pluto',
+      race: 'Incrocio',
       genre: Genres.MALE,
     },
   ];
@@ -35,5 +40,14 @@ describe('Get animal list API', () => {
     expect(status).toBe(200);
     expect(Array.isArray(body)).toBe(true);
     expect(body.length).toBe(animals.length);
+  });
+
+  test('should return animal list filtered by genre', async () => {
+    const genre = Genres.MALE;
+    const { status, body } = await request(app).get(`/animals?genre=${genre}`);
+
+    expect(status).toBe(200);
+    expect(Array.isArray(body)).toBe(true);
+    expect(body.length).toBe(animals.length - 1);
   });
 });

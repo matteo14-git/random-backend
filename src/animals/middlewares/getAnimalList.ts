@@ -3,10 +3,12 @@ import { getCollection, Collections } from '../../common/utils/Database';
 import { serverError } from '../../common/utils/errors';
 
 export default async (req: Request, res: Response, next: NextFunction) => {
+  const options = req.query;
+
   try {
     const collection = getCollection(Collections.animals);
 
-    const animals = await collection.find().toArray();
+    const animals = await collection.find(options).toArray();
 
     res.send(animals);
   } catch (err) {
