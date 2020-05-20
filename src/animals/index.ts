@@ -10,7 +10,7 @@ const router = Router();
 
 router.get('/', getAnimalList);
 
-router.post('/', createAnimal);
+router.post('/', celebrate(createAnimalSchema), createAnimal);
 
 router.put('/:animalId', updateAnimal);
 
