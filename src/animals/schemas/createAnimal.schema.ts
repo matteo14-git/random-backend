@@ -2,7 +2,6 @@ import { Joi, Segments } from 'celebrate';
 import { Genres } from '../interfaces/Animal';
 
 export const createAnimalKeys = {
-  _id: Joi.any().strip(),
   name: Joi.string().required(),
   race: Joi.string().required(),
   genre: Joi.string()
