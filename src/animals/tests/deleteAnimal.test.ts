@@ -32,7 +32,7 @@ describe('Delete animal API', () => {
 
     expect(createStatus).toBe(200);
 
-    const { body, status } = await request(app).delete(`/animals/${animalId}`);
+    const { status } = await request(app).delete(`/animals/${animalId}`);
 
     expect(status).toBe(200);
   });
