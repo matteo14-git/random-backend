@@ -7,10 +7,11 @@ import deleteAnimal from './middlewares/deleteAnimal';
 import getAnimalList from './middlewares/getAnimalList';
 import updateAnimalSchema from './schemas/updateAnimal.schema';
 import deleteAnimalSchema from './schemas/deleteAnimal.schema';
+import getAnimalListSchema from './schemas/getAnimalList.schema';
 
 const router = Router();
 
-router.get('/', getAnimalList);
+router.get('/', celebrate(getAnimalListSchema), getAnimalList);
 
 router.post('/', celebrate(createAnimalSchema), createAnimal);
 
