@@ -10,9 +10,12 @@ const createAnimal_schema_1 = __importDefault(require("./schemas/createAnimal.sc
 const updateAnimal_1 = __importDefault(require("./middlewares/updateAnimal"));
 const deleteAnimal_1 = __importDefault(require("./middlewares/deleteAnimal"));
 const getAnimalList_1 = __importDefault(require("./middlewares/getAnimalList"));
+const updateAnimal_schema_1 = __importDefault(require("./schemas/updateAnimal.schema"));
+const deleteAnimal_schema_1 = __importDefault(require("./schemas/deleteAnimal.schema"));
+const getAnimalList_schema_1 = __importDefault(require("./schemas/getAnimalList.schema"));
 const router = express_1.Router();
-router.get('/', getAnimalList_1.default);
+router.get('/', celebrate_1.celebrate(getAnimalList_schema_1.default), getAnimalList_1.default);
 router.post('/', celebrate_1.celebrate(createAnimal_schema_1.default), createAnimal_1.default);
-router.put('/:animalId', updateAnimal_1.default);
-router.delete('/:animalId', deleteAnimal_1.default);
+router.put('/:animalId', celebrate_1.celebrate(updateAnimal_schema_1.default), updateAnimal_1.default);
+router.delete('/:animalId', celebrate_1.celebrate(deleteAnimal_schema_1.default), deleteAnimal_1.default);
 exports.default = router;

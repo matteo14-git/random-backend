@@ -5,6 +5,7 @@ import helmet from 'helmet';
 
 import root from './root';
 import animals from './animals';
+import doctors from './doctors';
 import errorHandler from './common/utils/errorHandler';
 import { errors as celebrateErrors } from 'celebrate';
 
@@ -16,6 +17,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use('/', root);
 app.use('/animals', animals);
+app.use('/doctors', doctors);
 
 app.use(celebrateErrors());
 app.use(errorHandler);
