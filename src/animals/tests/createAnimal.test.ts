@@ -32,4 +32,10 @@ describe('Create animal API', () => {
     );
     expect(status).toBe(200);
   });
+
+  test('Should return 400 if no body is passed', async () => {
+    const { status } = await request(app).post('/animals');
+
+    expect(status).toBe(400);
+  });
 });

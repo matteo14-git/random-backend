@@ -6,6 +6,7 @@ const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 export enum Collections {
   animals = 'animals',
+  doctors = 'doctors',
 }
 
 export const getCollection = (collection: Collections) => {
