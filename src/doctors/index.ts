@@ -13,4 +13,6 @@ router.get('/', (req, res) => {
 
 router.post('/', celebrate(createDoctorSchema), createDoctor);
 
+router.put('/:doctorId', celebrate(updateDoctorSchema), updateDoctor);
+
 export default router;

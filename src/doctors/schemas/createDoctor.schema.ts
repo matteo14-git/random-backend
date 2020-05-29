@@ -1,5 +1,5 @@
 import { Segments, Joi } from 'celebrate';
-import { Genres } from '../../animals/interfaces/Animal';
+import { Genres } from '../interfaces/Doctor';
 
 export const createDoctorKeys = {
   surname: Joi.string().required(),
@@ -8,6 +8,7 @@ export const createDoctorKeys = {
   genre: Joi.string()
     .valid(...Object.values(Genres))
     .required(),
+  city: Joi.string(),
 };
 
 const body = Joi.object().keys(createDoctorKeys).unknown(false).required();
