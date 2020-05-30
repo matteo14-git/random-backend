@@ -4,6 +4,8 @@ import createDoctorSchema from './schemas/createDoctor.schema';
 import { celebrate } from 'celebrate';
 import updateDoctor from './middlewares/updateDoctor';
 import updateDoctorSchema from './schemas/updateDoctor.schema';
+import deleteDoctor from './middlewares/deleteDoctor';
+import deleteDoctorSchema from './schemas/deleteDoctor.schema';
 
 const router = Router();
 
@@ -14,5 +16,7 @@ router.get('/', (req, res) => {
 router.post('/', celebrate(createDoctorSchema), createDoctor);
 
 router.put('/:doctorId', celebrate(updateDoctorSchema), updateDoctor);
+
+router.delete('/:doctorId', celebrate(deleteDoctorSchema), deleteDoctor);
 
 export default router;

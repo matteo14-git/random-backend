@@ -37,11 +37,11 @@ describe('Delete animal API', () => {
     expect(status).toBe(200);
   });
 
-  // test('should return 400 if bad animal is passed', async () => {
-  //   const { status } = await request(app).delete('/animals/123');
+  test('should return 400 if bad animal is passed', async () => {
+    const { status } = await request(app).delete('/animals/123');
 
-  //   expect(status).toBe(400);
-  // });
+    expect(status).toBe(400);
+  });
 
   test('should return 404 if animal is not found', async () => {
     const _id = new ObjectId();
