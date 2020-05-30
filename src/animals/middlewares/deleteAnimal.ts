@@ -6,9 +6,8 @@ import { notFound, serverError } from '../../common/utils/errors';
 export default async (req: Request, res: Response, next: NextFunction) => {
   const { animalId } = req.params;
 
+  const collection = getCollection(Collections.animals);
   try {
-    const collection = getCollection(Collections.animals);
-
     const { value } = await collection.findOneAndDelete({
       _id: new ObjectId(animalId),
     });

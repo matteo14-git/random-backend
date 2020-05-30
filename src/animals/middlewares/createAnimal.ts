@@ -7,9 +7,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     ...req.body,
   };
 
+  const collection = getCollection(Collections.animals);
   try {
-    const collection = getCollection(Collections.animals);
-
     const { ops } = await collection.insertOne(animal);
 
     const insertedAnimal = ops[0];

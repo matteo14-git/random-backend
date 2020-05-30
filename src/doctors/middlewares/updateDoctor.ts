@@ -8,9 +8,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   const { doctorId } = req.params;
   const doctor: Doctors = req.body;
 
+  const collection = getCollection(Collections.doctors);
   try {
-    const collection = getCollection(Collections.doctors);
-
     const { value } = await collection.findOneAndUpdate(
       {
         _id: new ObjectId(doctorId),

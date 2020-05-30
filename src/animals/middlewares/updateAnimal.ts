@@ -8,9 +8,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   const { animalId } = req.params;
   const animal: Animals = req.body;
 
+  const collection = getCollection(Collections.animals);
   try {
-    const collection = getCollection(Collections.animals);
-
     const { value } = await collection.findOneAndUpdate(
       {
         _id: new ObjectId(animalId),
