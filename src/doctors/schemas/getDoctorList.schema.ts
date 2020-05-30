@@ -1,5 +1,5 @@
 import { Segments, Joi } from 'celebrate';
-import { Genres } from '../interfaces/Animal';
+import { Genres } from '../interfaces/Doctor';
 
 const query = Joi.object()
   .keys({

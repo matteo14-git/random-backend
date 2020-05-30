@@ -6,12 +6,11 @@ import updateDoctor from './middlewares/updateDoctor';
 import updateDoctorSchema from './schemas/updateDoctor.schema';
 import deleteDoctor from './middlewares/deleteDoctor';
 import deleteDoctorSchema from './schemas/deleteDoctor.schema';
+import getDoctorList from './middlewares/getDoctorList';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.send('Docs here');
-});
+router.get('/', getDoctorList);
 
 router.post('/', celebrate(createDoctorSchema), createDoctor);
 

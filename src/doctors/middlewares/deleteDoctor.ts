@@ -14,7 +14,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
     if (!value) return next(notFound());
 
-    res.send(200);
+    res.send(value);
   } catch (err) {
     next(serverError('Error deleting doctor', err));
   }
