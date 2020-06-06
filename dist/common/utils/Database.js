@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongodb_1 = require("mongodb");
-const DB_NAME = 'animal-vet';
-const DB_CONNECTION_STRING = 'mongodb://localhost:27017';
+const { DB_NAME = '', DB_CONNECTION_STRING = '' } = process.env;
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 var Collections;
 (function (Collections) {
     Collections["animals"] = "animals";
+    Collections["doctors"] = "doctors";
 })(Collections = exports.Collections || (exports.Collections = {}));
 exports.getCollection = (collection) => {
     return Database.client.db(DB_NAME).collection(collection);

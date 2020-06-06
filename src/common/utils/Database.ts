@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const DB_NAME = 'animal-vet';
-const DB_CONNECTION_STRING = 'mongodb://localhost:27017';
+const { DB_NAME = '', DB_CONNECTION_STRING = '' } = process.env;
+
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 export enum Collections {

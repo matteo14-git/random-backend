@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("./common/utils/loadenv");
 const app_1 = __importDefault(require("./app"));
 const Database_1 = require("./common/utils/Database");
-app_1.default.listen(4000, (err) => __awaiter(void 0, void 0, void 0, function* () {
-    if (err)
-        console.log(err);
+const { SERVER_PORT } = process.env;
+app_1.default.listen(SERVER_PORT, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log('App listening on 4000');
     try {
         yield Database_1.Database.connect();
